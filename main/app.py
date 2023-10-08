@@ -1,5 +1,8 @@
 from flask import Flask, flash, render_template, redirect, request, session
+from flask_session import Session
 from werkzeug.security import generate_password_hash, check_password_hash
+import mysql.connector
+
 
 app = Flask(__name__)
 
@@ -7,9 +10,14 @@ app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_TYPE"] = "filesystem"
 Session(app)
 
-db = SQL("mysql:///giftings.db")
-# create an empty database
-# insert tables into database
+db = mysql.connector.connect(
+    host='localhost'
+    user='root'
+    passwd='abcd'
+    database='gift'
+    )
+db = db.cursor()
+
 # create a helpers page with javascript? (instead of flash, error message of some sort, must be logged in function)
 
 @app.route("/login", methods=["GET", "POST"])
