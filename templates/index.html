@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block title %} Register {% endblock %}
+
+{% block body %}
+    <table>
+        <thead>
+            <tr>
+                <th>Person</th>
+                <th>Upcoming Event</th>
+                <th>Date of Event</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{% for person in people %}}
+            <tr>
+                <td>{{ person.people }}</td>
+                <td>{{ person.event }}</td>
+                <td>{{ person.date }}</td>
+            </tr>
+            {{% endfor %}}
+        </tbody>
+    </table>
+{% endblock %}

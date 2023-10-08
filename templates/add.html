@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+
+{% block title %} Register {% endblock %}
+
+{% block body %}
+    <form action="/add" method="post">
+        <h4>Name</h4>
+        <div>
+            <input autocomplete="off" placeholder="Name" autofocus id="name" type="text">
+        </div>
+        <h4>Birthday</h4>
+        <div>
+            <input autocomplete="off" placeholder="Birthday (mm/dd)" id="birthday" type="text">
+        </div>
+        <h4>What Events do They Celebrate?</h4>
+        <form action="/add" method="post">
+            <select class="form-control" id="event" name="event">
+                <option value="">Select a stock</option>
+                {% for event in events %}
+                    <option value="{{ event }}">{{ event }}</option>
+                    <div>
+                        <button type="submit" class="btn btn-outline-primary">Add Event</button>
+                    </div>
+                {% endfor %}
+            </select>
+        </form>
+            <div>
+            <form action="/add" method="post">
+                <div>Add an Event</div>
+                <div>
+                    <input autocomplete="off" placeholder="Add an Event" id="addevent" type="text">
+                </div>
+                <div>
+                    <input autocomplete="off" placeholder="Date (mm/dd)" id="adddate" type="text">
+                </div>
+                <div>
+                    <button type="submit" class="btn btn-outline-primary">Add New Event</button>
+                </div>
+            </form>
+            <div>Add Their Interests</div>
+                <a href="interests.html" target="_self">Add Interests</a>
+        <div>Notes</div>
+            <div>
+                <input autocomplete="off" placeholder="Notes" id="notes" type="text">
+            </div>
+        <div>
+            <button type="submit" class="btn btn-outline-primary">Add Person</button>
+        </div>
+    </form>
+{% endblock %}
