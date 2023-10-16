@@ -1,0 +1,60 @@
+{% extends "layout.html" %}
+
+{% block title %} Events {% endblock %}
+
+{% block body %}
+<h2 class="head">Add Events</h2>
+<!--Drop down menu-->
+<form action="/events" method="post" class="frm">
+    <div class="select">
+    <select class="form-control" id="person" name="person">
+        <option value="">Select Person</option>
+        {% for person in people %}
+            <option value="{{person[0]}}">{{person[0]}}</option>
+        {% endfor %}
+    </select>
+    </div>
+
+<!--Add event boxes-->
+    <div style="padding-top: 40px;">
+        <input autocomplete="off" placeholder="Add an Event" name="addevent" id="addevent" type="text">
+    </div>
+    <div style="padding-top: 40px;">
+        <input autocomplete="off" placeholder="Date (mm/dd)" name="adddate" id="adddate" type="text">
+    </div>
+    <div style="padding-top: 40px;">
+        <button type="submit" class="btn btn-outline-primary">Add New Event</button>
+    </div>
+</form>
+
+<!--Table of logged events-->
+    <h5 style="padding-left: 50px;">Logged Events:</h5>
+    <div class="container">
+    <table class="table table-striped">
+        <div>
+        <thead>
+            <tr scope="row">
+                <th class="event">Person</th>
+                <th class="event">Event</th>
+                <th class="event">Date</th>
+            </tr>
+        </thead>
+        </div>
+        <tbody class="table-group-divider">
+            {% for log in logged %}
+            <tr scope="row">
+                <td class="event">{{log[2]}}</td>
+                <td class="event">{{log[0]}}</td>
+                <td class="event">{{log[1]}}</td>
+            <form action="/deleteEvent" method="post">
+                <td class="event"><button type="submit" class="btn btn-outline-primary">Delete</button></td>
+                <input type="hidden" value="{{log[2]}}" name="name">
+                <input type="hidden" value="{{log[0]}}" name="event">
+            </form>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    </div>
+
+{% endblock %}

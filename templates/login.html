@@ -3,14 +3,14 @@
 {% block title %} Login {% endblock %}
 
 {% block body %}
-    <form action="/login" method="post">
-        <div>
-            <input autocomplete="off" placeholder="Username" autofocus id="username" type="text">
+    <form action="/login" method="post" class="frm">
+        <div class="login">
+            <input autocomplete="off" placeholder="Username" autofocus name="username" id="username" type="text">
         </div>
-        <div>
-            <input autocomplete="off" placeholder="Password" id="password" type="text">
+        <div class="login">
+            <input autocomplete="off" placeholder="Password" name="password" id="password" type="password">
         </div>
-        <div>
+        <div class="login">
             <button type="submit" class="btn btn-outline-primary">Login</button>
         </div>
     </form>

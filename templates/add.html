@@ -1,50 +1,89 @@
 {% extends "layout.html" %}
 
-{% block title %} Register {% endblock %}
+{% block title %} Add Person {% endblock %}
 
 {% block body %}
-    <form action="/add" method="post">
-        <h4>Name</h4>
-        <div>
-            <input autocomplete="off" placeholder="Name" autofocus id="name" type="text">
+<h2 class="head">Add People</h2>
+<!--Add person form-->
+    <form action="/add" method="post" class="frm">
+        <h6>Input the person's name, birthday, and any additional notes</h6>
+        <div class="box">
+            <input autocomplete="off" placeholder="Name" autofocus name="name" id="name" type="text">
         </div>
-        <h4>Birthday</h4>
-        <div>
-            <input autocomplete="off" placeholder="Birthday (mm/dd)" id="birthday" type="text">
+        <div class="box">
+            <input autocomplete="off" placeholder="Birthday (mm/dd/yyyy)" name="birthday" id="birthday" type="text">
         </div>
-        <h4>What Events do They Celebrate?</h4>
-        <form action="/add" method="post">
-            <select class="form-control" id="event" name="event">
-                <option value="">Select a stock</option>
-                {% for event in events %}
-                    <option value="{{ event }}">{{ event }}</option>
-                    <div>
-                        <button type="submit" class="btn btn-outline-primary">Add Event</button>
-                    </div>
-                {% endfor %}
-            </select>
-        </form>
-            <div>
-            <form action="/add" method="post">
-                <div>Add an Event</div>
-                <div>
-                    <input autocomplete="off" placeholder="Add an Event" id="addevent" type="text">
-                </div>
-                <div>
-                    <input autocomplete="off" placeholder="Date (mm/dd)" id="adddate" type="text">
-                </div>
-                <div>
-                    <button type="submit" class="btn btn-outline-primary">Add New Event</button>
-                </div>
-            </form>
-            <div>Add Their Interests</div>
-                <a href="interests.html" target="_self">Add Interests</a>
-        <div>Notes</div>
-            <div>
-                <input autocomplete="off" placeholder="Notes" id="notes" type="text">
-            </div>
-        <div>
+        <div class="box">
+            <input autocomplete="off" placeholder="Notes" name="notes" id="notes" type="text">
+        </div>
+        <div class="box">
             <button type="submit" class="btn btn-outline-primary">Add Person</button>
         </div>
     </form>
+<br>
+    <h5 style="padding-left: 50px;">Registered People:</h5>
+    <div class="container">
+    <table class="table table-striped">
+        <thead>
+            <tr scope="row">
+                <th class="add">Name</th>
+                <th class="add">Birthday</th>
+                <th class="add">Notes</th>
+            </tr>
+        </thead>
+        <tbody class="table-group-divider">
+            {% for person in people %}
+            <tr scope="row">
+                <td class="add">{{person[0]}}</td>
+                <td class="add">{{person[1]}}</td>
+                <td class="add">{{person[2]}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    </div>
+<br>
+
+<!--Edit people-->
+    <h5 style="padding-top: 50px; padding-left: 50px;">Edit People:</h5>
+    <h6 style="text-align: center;">Select A Person to Edit Thier Information:</h6>
+    <form action="/editPerson" method="post" class="frm">
+        <div class="select">
+        <select class="form-control" id="person" name="person">
+            <option value="">Select Person</option>
+            {% for person in people %}
+            <option value="{{person[0]}}">{{person[0]}}</option>
+            {% endfor %}
+        </select>
+        </div>
+<br>
+
+<div class="addinput">
+<!--Edit name-->
+    <div class="input-group mb-3">
+        <span class="input-group-text" id="inputGroup-sizing-default">Edit Name:</span>
+        <input autocomplete="off" placeholder="Name" name="newName" id="newName" type="text">
+    </div>
+<br>
+
+<!--Edit birthday-->
+    <div class="input-group mb-3">
+        <span class="input-group-text" id="inputGroup-sizing-default">Edit Birthday:</span>
+        <input autocomplete="off" placeholder="Birthday" name="newBirth" id="newBirth" type="text">
+    </div>
+<br>
+
+<!--Edit notes-->
+    <div class="input-group mb-3">
+        <span class="input-group-text" id="inputGroup-sizing-default">Edit Notes:</span>
+        <input autocomplete="off" placeholder="Notes" name="newNotes" id="newNotes" type="text">
+    </div>
+</div>
+<br>
+
+<!--Submit button-->
+    <div>
+        <button type="submit" class="btn btn-outline-primary">Submit Changes</button>
+    </div>
+</form>
 {% endblock %}

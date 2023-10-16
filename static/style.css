@@ -1,0 +1,79 @@
+/*tables*/
+.container {
+    width: 1000px;
+    border: solid;
+    text-align: center;
+    font-size: 18px;
+    padding-top: 10px;
+}
+
+/*forms*/
+.frm {
+    text-align: center;
+    padding-bottom: 50px;
+}
+
+/*select forms*/
+.select {
+    width: 500px;
+    margin: 0 auto;
+}
+
+/*page headers*/
+.head {
+    text-align: center; 
+    padding-bottom: 50px; 
+    padding-top: 20px;
+}
+
+/*index- current date*/
+.js {
+    text-align: center;
+    display: block;
+    font-size: 40px;
+    padding-bottom: 60px;
+}
+
+/*index- table*/
+.index, .add {
+    width: 33.3%
+}
+
+/*login*/
+.login, .register, .box {
+    text-align: center;
+    padding-bottom: 15px;
+    padding-top: 15px;
+    font-size: 18px;
+}
+
+/*add- edit form*/
+.addinput {
+    padding-left: 550px;
+}
+
+/*events- table*/
+.event {
+    width: 25%;
+}
+
+/*interests- checkboxes*/
+.form-check {
+    padding-top: 8px;
+}
+
+/*shop page*/
+.shop {
+    padding-bottom: 8px;
+}
+
+/*nav bar*/
+.nav-link {
+    font-size: 20px;
+}
+
+/*index event table*/
+
+.inev {
+    width: 50%;
+}

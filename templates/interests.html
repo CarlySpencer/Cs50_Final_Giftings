@@ -3,162 +3,317 @@
 {% block title %} Interests {% endblock %}
 
 {% block body %}
-    <h1>Interests</h1>
+    <h2 class="head">Interests</h2>
+<!--Drop down menu-->
     <form action="/interests" method="post">
-        <h4>Active (Indoor)</h4>
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="dancing">
-                <label class="form-check-label" for="dancing">Dancing</label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="gym">
-                <label class="form-check-label" for="gym">Gym</label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="swimming">
-                <label class="form-check-label" for="swimming">Swimming</label>
+        <h6 style="text-align: center;">Add interests for:</h6>
+            <div class="select" style="padding-bottom: 50px;">
+            <select class="form-control" id="person" name="person">
+                <option value="">Select Person</option>
+                {% for person in people %}
+                    <option value="{{person[0]}}">{{person[0]}}</option>
+                {% endfor %}
+            </select>
             </div>
 
-        <h4>Active (Outdoor)</h4>
+<!--Interest checkboxes-->
+<div class="row align-items-start" style="padding-left: 200px;">
+    <div class="col-md-2">
+        <h5>Active (Indoor)</h5>
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="hiking">
-                <label class="form-check-label" for="hiking">Hiking</label>
+                <input class="form-check-input" type="checkbox" name="interests" value="Badminton">
+                <label class="form-check-label" for="Badminton">Badminton</label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="fishing">
-                <label class="form-check-label" for="fishing">Fishing</label>
+                <input class="form-check-input" type="checkbox" name="interests" value="Basketball">
+                <label class="form-check-label" for="Basketball">Basketball</label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="camping">
-                <label class="form-check-label" for="camping">Camping</label>
+                <input class="form-check-input" type="checkbox" name="interests" value="Boating">
+                <label class="form-check-label" for="Boating">Boating</label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="football">
-                <label class="form-check-label" for="football">Football</label>
+                <input class="form-check-input" type="checkbox" name="interests" value="Dancing">
+                <label class="form-check-label" for="Dancing">Dancing</label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="gardening">
-                <label class="form-check-label" for="gardening">Gardening</label>
+                <input class="form-check-input" type="checkbox" name="interests" value="Gym">
+                <label class="form-check-label" for="Gym">Gym</label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="running">
-                <label class="form-check-label" for="running">Running</label>
+                <input class="form-check-input" type="checkbox" name="interests" value="Gymnastics">
+                <label class="form-check-label" for="Gymnastics">Gymnastics</label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="soccer">
-                <label class="form-check-label" for="soccer">Soccer</label>
+                <input class="form-check-input" type="checkbox" name="interests" value="Martial arts">
+                <label class="form-check-label" for="Martial arts">Martial Arts</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="interests" value="Rock climbing">
+                <label class="form-check-label" for="Rock climbing">Rock Climbing</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="interests" value="Swimming">
+                <label class="form-check-label" for="Swimming">Swimming</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="interests" value="Yoga">
+                <label class="form-check-label" for="Yoga">Yoga</label>
+            </div>
+    </div>
+    <div class="col-md-2">
+        <h5>Active (Outdoor)</h5>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="interests" value="Baseball">
+                <label class="form-check-label" for="Baseball">Baseball</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="interests" value="Biking">
+                <label class="form-check-label" for="Biking">Biking</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="interests" value="Camping">
+                <label class="form-check-label" for="Camping">Camping</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="interests" value="Fishing">
+                <label class="form-check-label" for="Fishing">Fishing</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="interests" value="Football">
+                <label class="form-check-label" for="Football">Football</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="interests" value="Gardening">
+                <label class="form-check-label" for="Gardening">Gardening</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="interests" value="Golfing">
+                <label class="form-check-label" for="Golfing">Golfing</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="interests" value="Hiking">
+                <label class="form-check-label" for="Hiking">Hiking</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="interests" value="Rnning">
+                <label class="form-check-label" for="Running">Running</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="interests" value="Soccer">
+                <label class="form-check-label" for="Soccer">Soccer</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="interests" value="Tennis">
+                <label class="form-check-label" for="Tennis">Tennis</label>
+            </div>
+    </div>
+
+    <div class="col-md-2">
+        <h5>Creating</h5>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="interests" value="Crocheting">
+                <label class="form-check-label" for="Crocheting">Crocheting</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="interests" value="Drawing">
+                <label class="form-check-label" for="Drawing">Drawing</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="interests" value="Knitting">
+                <label class="form-check-label" for="Knitting">Knitting</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="interests" value="Painting">
+                <label class="form-check-label" for="Painting">Painting</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="interests" value="Plants">
+                <label class="form-check-label" for="Plants">Plants</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="interests" value="Photography">
+                <label class="form-check-label" for="Photography">Photography</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="interests" value="Sewing">
+                <label class="form-check-label" for="Sewing">Sewing</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="interests" value="Woodworking">
+                <label class="form-check-label" for="Woodworking">Woodworking</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="interests" value="Writing">
+                <label class="form-check-label" for="Writing">Writing</label>
+            </div>
+    </div>
+    <div class="col-md-2">
+        <h5>Food</h5>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="interests" value="Baking">
+                <label class="form-check-label" for="Baking">Baking</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="interests" value="Coffee">
+                <label class="form-check-label" for="Coffee">Coffee</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="interests" value="Cooking">
+                <label class="form-check-label" for="Cooking">Cooking</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="interests" value="Tea">
+                <label class="form-check-label" for="Tea">Tea</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="interests" value="Wine">
+                <label class="form-check-label" for="Wine">Wine</label>
             </div>
 
-        <h4>Art</h4>
+        <h5>Media</h5>
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="drawing">
-                <label class="form-check-label" for="drawing">Drawing</label>
+                <input class="form-check-input" type="checkbox" name="interests" value="Astrology">
+                <label class="form-check-label" for="Astrology">Astrology</label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="painting">
-                <label class="form-check-label" for="painting">Painting</label>
+                <input class="form-check-input" type="checkbox" name="interests" value="Board games">
+                <label class="form-check-label" for="Board games">Board Games</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="interests" value="Movies">
+                <label class="form-check-label" for="Movies">Movies</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="interests" value="Music">
+                <label class="form-check-label" for="Music">Music</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="interests" value="Reading">
+                <label class="form-check-label" for="Reading">Reading</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="interests" value="Tv">
+                <label class="form-check-label" for="Tv">TV Shows</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="interests" value="Video games">
+                <label class="form-check-label" for="Video games">Video Games</label>
+            </div>
+    </div>
+
+    <div class="col-md-2">
+        <h5>Pets</h5>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="interests" value="Pet bird">
+                <label class="form-check-label" for="Pet bird">Bird</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="interests" value="Pet cat">
+                <label class="form-check-label" for="Pet cat">Cat</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="interests" value="Pet dog">
+                <label class="form-check-label" for="Pet dog">Dog</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="interests" value="Pet fish">
+                <label class="form-check-label" for="Pet fish">Fish</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="interests" value="Pet horse">
+                <label class="form-check-label" for="Pet horse">Horse</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="interests" value="Pet reptile">
+                <label class="form-check-label" for="Pet reptile">Reptile</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="interests" value="Pet rodent">
+                <label class="form-check-label" for="Pet rodent">Rodent</label>
             </div>
 
-        <h4>Creating</h4>
+        <h5>Self-Care</h5>
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="sewing">
-                <label class="form-check-label" for="sewing">Sewing</label>
+                <input class="form-check-input" type="checkbox" name="interests" value="Bathing">
+                <label class="form-check-label" for="Bathing">Bathing</label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="woodworking">
-                <label class="form-check-label" for="woodworking">Woodworking</label>
+                <input class="form-check-input" type="checkbox" name="interests" value="Candles">
+                <label class="form-check-label" for="Candles">Candles</label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="writing">
-                <label class="form-check-label" for="writing">Writing</label>
+                <input class="form-check-input" type="checkbox" name="interests" value="Face care">
+                <label class="form-check-label" for="Face care">Face Care</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="interests" value="Hair care">
+                <label class="form-check-label" for="Hair care">Hair Care</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="interests" value="Incense">
+                <label class="form-check-label" for="Incense">Incense</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="interests" value="Makeup">
+                <label class="form-check-label" for="Makeup">Makeup</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="interests" value="Meditating">
+                <label class="form-check-label" for="Meditating">Meditating</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="interests" value="Nail care">
+                <label class="form-check-label" for="Nail care">Nail Care</label>
+            </div>
+    </div>
+</div>
+            <div style="text-align: center;">
+                <button type="submit" class="btn btn-outline-primary">Add Interests</button>
             </div>
 
-        <h4>Food</h4>
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="baking">
-                <label class="form-check-label" for="baking">Baking</label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="coffee">
-                <label class="form-check-label" for="coffee">Coffee</label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="cooking">
-                <label class="form-check-label" for="cooking">Cooking</label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="tea">
-                <label class="form-check-label" for="tea">Tea</label>
-            </div>
+        </form>
 
-
-        <h4>Media</h4>
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="boardgames">
-                <label class="form-check-label" for="boardgames">Board Games</label>
+        <h5 style="padding-left: 50px; padding-top: 100px">Add a Custom Interest:</h5>
+        <form action="/custom" method="post">
+            <div class="select">
+            <select class="form-control" id="person" name="person">
+                <option value="">Select Person</option>
+                {% for person in people %}
+                    <option value="{{person[0]}}">{{person[0]}}</option>
+                {% endfor %}
+            </select>
             </div>
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="reading">
-                <label class="form-check-label" for="reading">Reading</label>
+            <div style="padding-top: 40px; text-align: center;">
+                <input autocomplete="off" placeholder="Interest" name="add" id="add" type="text">
             </div>
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="movies">
-                <label class="form-check-label" for="movies">Movies</label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="tvshows">
-                <label class="form-check-label" for="tvshows">TV Shows</label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="videogames">
-                <label class="form-check-label" for="videogames">Video Games</label>
-            </div>
-
-        <h4>Pets?</h4>
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="bird">
-                <label class="form-check-label" for="bird">Bird</label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="cat">
-                <label class="form-check-label" for="cat">Cat</label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="dog">
-                <label class="form-check-label" for="dog">Dog</label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="horse">
-                <label class="form-check-label" for="horse">Horse</label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="reptile">
-                <label class="form-check-label" for="reptile">Reptile</label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="rodent">
-                <label class="form-check-label" for="rodent">Rodent</label>
-            </div>
-
-        <h4>Self-Care</h4>
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="bathing">
-                <label class="form-check-label" for="bathing">Bathing</label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="facecare">
-                <label class="form-check-label" for="facecare">Face Care</label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="makeup">
-                <label class="form-check-label" for="makeup">Makeup</label>
-            </div>
-        <h4>Add an Interest</h4>
-            <div>
-                <input autocomplete="off" placeholder="Add Interest" id="add" type="text">
-            </div>
-            <div>
-                <button type="submit" class="btn btn-outline-primary">Add</button>
+            <div style="padding-top: 40px; padding-bottom: 40px; text-align: center;">
+                <button type="submit" class="btn btn-outline-primary">Add Custom Interest</button>
             </div>
         </form>
+
+        <h5 style="padding-left: 50px;">Logged Interests:</h5>
+        <div class="container">
+            <table class="table table-striped">
+                <thead>
+                    <tr scope="row">
+                        <th>Name</th>
+                        <th>Interests</th>
+                    </tr>
+                </thead>
+                <tbody class="table-group-divider">
+                    {% for interest in interests %}
+                    <tr scope="row">
+                        <td>{{interest[0]}}</td>
+                        <td>{{interest[1]}}</td>
+                    <form action="/deleteInterest" method="post">
+                        <td><button type="submit" class="btn btn-outline-primary">Delete</button></td>
+                        <input type="hidden" value="{{interest[0]}}" name="name">
+                        <input type="hidden" value="{{interest[1]}}" name="interest">
+                    </form>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
 {% endblock %}

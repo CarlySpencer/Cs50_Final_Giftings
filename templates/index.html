@@ -1,24 +1,87 @@
 {% extends "layout.html" %}
 
-{% block title %} Register {% endblock %}
+{% block title %} Home {% endblock %}
 
 {% block body %}
-    <table>
-        <thead>
-            <tr>
-                <th>Person</th>
-                <th>Upcoming Event</th>
-                <th>Date of Event</th>
-            </tr>
-        </thead>
-        <tbody>
-            {{% for person in people %}}
-            <tr>
-                <td>{{ person.people }}</td>
-                <td>{{ person.event }}</td>
-                <td>{{ person.date }}</td>
-            </tr>
-            {{% endfor %}}
+<!--Current date-->
+    <h5 style="text-align: center;">Today's Date:</h5>
+    <span id="date" class="js"></span>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function(){
+            let today = new Date().toLocaleDateString();
+            document.getElementById("date").innerHTML = today;
+        });
+    </script>
+
+<br>
+
+<!--Birthday table-->
+<div class="container">
+<table class="table table-striped">
+    <thead>
+        <tr scope="row">
+        <th class="index">Name</th>
+        <th class="index">Birthday</th>
+        <th class="index">Notes</th>
+        </tr>
+    </thead>
+    <tbody class="table-group-divider">
+        {% for birthday in birthdays %}
+        <tr scope="row">
+            <td class="index">{{birthday[0]}}</td>
+            <td class="index">{{birthday[1]}}</td>
+            <td class="index">{{birthday[2]}}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+</div>
+
+
+<h5 style="padding-left: 50px; padding-top: 50px;">View People's Events and Interests:</h5>
+<!--Drop down menu-->
+<form action="/" method="post" class="frm">
+    <div class="select">
+    <select class="form-control" id="person" name="person">
+        <option value="">Select Person</option>
+        {% for person in people %}
+            <option value="{{person[0]}}">{{person[0]}}</option>
+        {% endfor %}
+    </select>
+    <div style="padding-top: 50px">
+        <button type="submit" class="btn btn-outline-primary">View Info</button>
+    </div>
+    </div>
+</form>
+
+{% if index %}
+<!--Events table-->
+<h5 style="padding-left: 50px;">Events that {{name}} celebrates:</h5>
+    <div class="container">
+    <table class="table table-striped">
+        <thead><tr scope="row">
+            <th class="inev">Event</th>
+            <th class="inev">Date</th>
+        </tr></thead>
+        <tbody class="table-group-divider">
+            {% for event in events %}
+                <tr scope = row><td class="inev">{{event[0]}}</td>
+                <td class="inev">{{event[1]}}</td></tr>
+            {% endfor %}
         </tbody>
     </table>
+    </div>
+
+<!--Interests-->
+<h5 style="padding-left: 50px; padding-top: 50px;">{{name}}'s interests:</h5>
+<div class="row align-items-start" style="padding-left: 250px; padding-bottom: 100px;">
+    <ul class="col=-md-4">
+        {% for interest in interests%}
+        <li style="font-size: 20px;">{{interest[0]}}</li>
+        {% endfor %}
+    </ul>
+</div>
+
+{% endif %}
 {% endblock %}
